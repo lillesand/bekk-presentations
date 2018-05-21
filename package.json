@@ -1,0 +1,16 @@
+{
+  "name": "bekk-presentations",
+  "version": "0.1.0",
+  "description": "Posts todays presentations from Airtable to Slack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jøran Lillesand",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.5.6",
+    "moment": "^2.22.1",
+    "slack-node": "^0.1.8"
+  }
+}

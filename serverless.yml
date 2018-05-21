@@ -1,0 +1,20 @@
+service: bekk-presentations
+provider:
+  name: aws
+  runtime: nodejs8.10
+  memorySize: 128
+  timeout: 3
+  stage: prod
+  region: eu-central-1
+  tracing: true
+
+functions:
+  airtable-to-slack:
+    handler: index.handler
+    events:
+      - schedule:
+        rate: cron(0 10 * * *) # Every day at 10:00
+        enabled: true
+    environment:
+      SLACK_WEBHOOK_URI: ${ssm:bekk_presentations.slack_webhook_uri }
+      AIRTABLE_ACCESS_TOKEN: ${ssm:bekk-presentations.airtable-api-key }
