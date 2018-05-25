@@ -13,8 +13,8 @@ functions:
     handler: index.handler
     events:
       - schedule:
-        rate: cron(0 10 * * *) # Every day at 10:00
-        enabled: true
+          rate: cron(0 8 * * ? *)
+          enabled: true
     environment:
       SLACK_WEBHOOK_URI: ${ssm:bekk_presentations.slack_webhook_uri }
       AIRTABLE_ACCESS_TOKEN: ${ssm:bekk-presentations.airtable-api-key }
